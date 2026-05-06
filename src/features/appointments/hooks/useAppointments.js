@@ -13,8 +13,8 @@ const STATUS = {
 };
 
 export function useAppointments() {
-  const [appointments, setAppointments] = useState([]);
-  const [status, setStatus] = useState(STATUS.IDLE);
+  const [appointments, setAppointments] = useState([]);//array vaciopara amacenar cita
+  const [status, setStatus] = useState(STATUS.IDLE);//actualizar datos
   const [error, setError] = useState(null);
   const { user, profile, isAprendiz } = useAuth();
 
@@ -36,7 +36,7 @@ export function useAppointments() {
         });
         setAppointments(data);
         return data;
-      } catch (err) {
+      } catch (err) { // para manejo de error
         setError(err.message);
         toast.error("Error cargando citas");
         return [];
