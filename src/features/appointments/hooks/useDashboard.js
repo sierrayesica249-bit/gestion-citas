@@ -87,6 +87,7 @@ export function useDashboard() {
         byDependecy,
         monthlyTrend,
         profesionals,
+        
         loading,
         fetchAllMetrics,
         exporToCSV,
