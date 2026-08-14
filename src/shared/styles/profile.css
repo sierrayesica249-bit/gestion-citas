@@ -1,0 +1,374 @@
+/* ============================================
+   PROFILE PAGE
+   ============================================ */
+
+.profile-container {
+  max-width: 640px;
+}
+
+.profile-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Avatar section */
+.profile-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profile-name-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.profile-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a34a;
+  background: #dcfce7;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+/* Info section */
+.profile-info {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-field-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.profile-field-label svg {
+  color: #9ca3af;
+}
+
+.profile-field-value {
+  font-size: 15px;
+  color: #111827;
+  padding-left: 22px;
+}
+
+/* Edit form */
+.profile-form {
+  padding: 20px 24px;
+}
+
+.profile-form .profile-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-form .form-input {
+  width: 100%;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .profile-avatar-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-name-section {
+    align-items: center;
+  }
+
+  .profile-role-badge {
+    width: fit-content;
+  }
+
+  .profile-field-value {
+    padding-left: 0;
+  }
+}
+
+/* ── Profile edit button ── */
+.profile-edit-btn {
+  margin-left: auto;
+}
+
+/* ── Section header (account tab) ── */
+.profile-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.profile-section-header:last-child {
+  border-bottom: none;
+}
+
+.profile-section-header svg {
+  color: #6b7280;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.profile-section-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.profile-section-header p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 2px 0 0;
+}
+
+.profile-section-divider {
+  height: 1px;
+  background: #f3f4f6;
+  margin: 0;
+}
+
+/* ── Password toggle ── */
+.profile-pw-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pw-wrapper .form-input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.pw-toggle {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.15s;
+}
+
+.pw-toggle:hover {
+  color: #374151;
+}
+
+.profile-pw-error {
+  font-size: 13px;
+  color: #ef4444;
+  padding-left: 22px;
+}
+
+/* ── Role & Functions tab ── */
+.profile-role-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border-left: 4px solid;
+  background: linear-gradient(135deg, #f9fafb, #fff);
+}
+
+.profile-role-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-role-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.profile-role-desc {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 2px 0 0;
+}
+
+.profile-permissions {
+  padding: 20px 24px;
+}
+
+.profile-permissions-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.profile-permission-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.profile-permission-item:last-child {
+  border-bottom: none;
+}
+
+.profile-permission-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-permission-icon.allowed {
+  background: #d1fae5;
+  color: #22c55e;
+}
+
+.profile-permission-icon.denied {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.profile-permission-text {
+  font-size: 14px;
+  color: #374151;
+}
+
+.profile-permission-text.denied {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.profile-permissions-hint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: -8px 0 12px;
+}
+
+.profile-permission-item.clickable {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 8px;
+  margin: 0 -8px;
+  transition: background 0.15s ease;
+}
+
+.profile-permission-item.clickable:hover {
+  background: #f3f4f6;
+}
+
+.profile-permission-item.clickable:active {
+  background: #e5e7eb;
+}
+
+.profile-permission-arrow {
+  margin-left: auto;
+  color: #9ca3af;
+  font-size: 14px;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.profile-permission-item.clickable:hover .profile-permission-arrow {
+  color: #22c55e;
+  transform: translateX(2px);
+}
+
+/* ── Email edit ── */
+.profile-email-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.profile-email-row p {
+  font-size: 14px;
+  color: #111827;
+  margin: 2px 0 0;
+}
+
+.profile-email-form {
+  margin-top: 8px;
+}
+
+.profile-email-form .form-input {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.profile-email-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

@@ -1,0 +1,1271 @@
+/* ============================================
+   ALL DASHBOARDS — Responsive Styles
+   ============================================ */
+
+/* ── Psicología / Trabajo Social Hero ── */
+.psych-hero,
+.social-hero {
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+}
+
+.psych-hero {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+}
+
+.social-hero {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+}
+
+.psych-hero-content,
+.social-hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.psych-hero-left,
+.social-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.psych-hero-icon,
+.social-hero-icon {
+  font-size: 32px;
+}
+
+.psych-hero-text h1,
+.social-hero-text h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.psych-hero-text p,
+.social-hero-text p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 4px 0 0 0;
+}
+
+.psych-hero-badge,
+.social-hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.psych-hero-stats,
+.social-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.psych-hero-stat,
+.social-hero-stat {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.psych-hero-stat-icon,
+.social-hero-stat-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.psych-hero-stat-value,
+.social-hero-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.psych-hero-stat-label,
+.social-hero-stat-label {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+/* ── Purple Filter Pills ── */
+.filter-pill.purple.active {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+.filter-pill.purple:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+}
+
+/* ── Role Tab Purple ── */
+.role-tab.active.purple {
+  background: #8b5cf6;
+  color: white;
+}
+
+/* ── Psych/Social Content Card ── */
+.psych-content-card,
+.social-content-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.psych-content-header,
+.social-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.psych-content-title,
+.social-content-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+/* ── Psych Patient Grid ── */
+.psych-patient-grid,
+.social-patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.psych-patient-enhanced,
+.social-patient-enhanced {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.psych-patient-enhanced-header,
+.social-patient-enhanced-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.psych-patient-enhanced-info,
+.social-patient-enhanced-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.psych-patient-enhanced-avatar,
+.social-patient-enhanced-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.social-patient-enhanced-avatar {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.psych-patient-enhanced-name,
+.social-patient-enhanced-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.psych-patient-enhanced-doc,
+.social-patient-enhanced-doc {
+  display: block;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.psych-patient-enhanced-stats,
+.social-patient-enhanced-stats {
+  display: flex;
+  gap: 12px;
+}
+
+.psych-patient-mini-stat,
+.social-patient-mini-stat {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  background: white;
+  border-radius: 8px;
+}
+
+.psych-patient-mini-stat strong,
+.social-patient-mini-stat strong {
+  display: block;
+  font-size: 16px;
+  color: #111827;
+}
+
+.psych-patient-mini-stat small,
+.social-patient-mini-stat small {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+/* ── Risk Badge ── */
+.psych-risk-badge,
+.social-risk-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.psych-risk-badge.bajo,
+.social-risk-badge.bajo {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.psych-risk-badge.medio,
+.social-risk-badge.medio {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.psych-risk-badge.alto,
+.social-risk-badge.alto {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ── Psych/Social Enhanced Row ── */
+.psych-enhanced-row,
+.social-enhanced-row {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.psych-enhanced-main,
+.social-enhanced-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.psych-enhanced-main:hover,
+.social-enhanced-main:hover {
+  background: #f9fafb;
+}
+
+.psych-enhanced-info,
+.social-enhanced-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.psych-enhanced-patient,
+.social-enhanced-patient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.psych-enhanced-avatar,
+.social-enhanced-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.social-enhanced-avatar {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.psych-enhanced-name,
+.social-enhanced-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.psych-enhanced-doc,
+.social-enhanced-doc {
+  display: block;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.psych-enhanced-meta,
+.social-enhanced-meta {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.psych-enhanced-meta span,
+.social-enhanced-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.psych-enhanced-status,
+.social-enhanced-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.psych-enhanced-status[data-s="pending"],
+.social-enhanced-status[data-s="pending"] {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.psych-enhanced-status[data-s="confirmed"],
+.social-enhanced-status[data-s="confirmed"] {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.psych-enhanced-status[data-s="completed"],
+.social-enhanced-status[data-s="completed"] {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.psych-enhanced-status[data-s="cancelled"],
+.social-enhanced-status[data-s="cancelled"] {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.psych-enhanced-status[data-s="no_show"],
+.social-enhanced-status[data-s="no_show"] {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* ── Appointment Details ── */
+.psych-appointment-details,
+.social-appointment-details {
+  padding: 14px 16px;
+  border-top: 1px solid #f3f4f6;
+  background: #fafafa;
+}
+
+.psych-detail-section,
+.social-detail-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.psych-detail-section strong,
+.social-detail-section strong {
+  display: block;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.psych-detail-section p,
+.social-detail-section p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.psych-actions,
+.social-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* ── Enhanced Note Card ── */
+.enhanced-note-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.enhanced-note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.enhanced-note-patient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Admin Section ── */
+.admin-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 4px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 4px;
+  overflow-x: auto;
+}
+
+.admin-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.admin-tab:hover {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+.admin-tab.active {
+  background: #16a34a;
+  color: white;
+}
+
+.admin-tab-content {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+/* ── Filter Bar ── */
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-box input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 13px;
+  flex: 1;
+}
+
+.filter-bar select {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  background: white;
+  cursor: pointer;
+}
+
+/* ── Admin Table ── */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #f9fafb;
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #111827;
+}
+
+.admin-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.email {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.role-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.role-badge.superadmin { background: #fee2e2; color: #991b1b; }
+.role-badge.coordinacion { background: #dbeafe; color: #1e40af; }
+.role-badge.psicologia { background: #ede9fe; color: #6d28d9; }
+.role-badge.enfermeria { background: #dbeafe; color: #1e40af; }
+.role-badge.trabajo_social { background: #fef3c7; color: #92400e; }
+.role-badge.aprendiz { background: #d1fae5; color: #065f46; }
+
+.status-toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.status-toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  transition: left 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.status-toggle.activo {
+  background: #16a34a;
+}
+
+.status-toggle.activo::after {
+  left: 21px;
+}
+
+.status-toggle.inactivo {
+  background: #d1d5db;
+}
+
+.status-toggle.inactivo::after {
+  left: 3px;
+}
+
+.table-actions {
+  position: relative;
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: all 0.15s;
+}
+
+.btn-icon:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+  min-width: 140px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: #f9fafb;
+}
+
+.table-row-inactive {
+  opacity: 0.5;
+}
+
+.table-empty {
+  text-align: center;
+  padding: 32px;
+  color: #9ca3af;
+}
+
+/* ── Pagination ── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.pagination-info {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.pagination-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.pagination-btn:hover {
+  background: #f9fafb;
+}
+
+.pagination-btn.active {
+  background: #16a34a;
+  color: white;
+  border-color: #16a34a;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Modal ── */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f3f4f6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: all 0.15s;
+}
+
+.modal-close:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* ── Form ── */
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-label-required::after {
+  content: ' *';
+  color: #ef4444;
+}
+
+.form-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input-icon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111827;
+  background: white;
+  transition: border-color 0.15s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Skeleton ── */
+.skeleton {
+  background: #e5e7eb;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-text {
+  height: 20px;
+}
+
+.skeleton-text-sm {
+  height: 14px;
+}
+
+.skeleton-card {
+  height: 120px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── Spinner ── */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #16a34a;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.spinner-lg {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Appointments Grid ── */
+.appointments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+/* ── Filter Tabs ── */
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.filter-tabs button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.filter-tabs button:hover {
+  color: #16a34a;
+  border-color: #16a34a;
+}
+
+.filter-tabs button.active {
+  background: #16a34a;
+  color: white;
+  border-color: #16a34a;
+}
+
+/* ============================================
+   RESPONSIVE — ALL COMPONENTS
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .psych-hero-stats,
+  .social-hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .psych-patient-grid,
+  .social-patient-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .appointments-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero */
+  .psych-hero,
+  .social-hero {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .psych-hero-content,
+  .social-hero-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .psych-hero-left,
+  .social-hero-left {
+    gap: 12px;
+  }
+
+  .psych-hero-icon,
+  .social-hero-icon {
+    font-size: 24px;
+  }
+
+  .psych-hero-text h1,
+  .social-hero-text h1 {
+    font-size: 20px;
+  }
+
+  .psych-hero-text p,
+  .social-hero-text p {
+    font-size: 12px;
+  }
+
+  .psych-hero-badge,
+  .social-hero-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .psych-hero-stats,
+  .social-hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .psych-hero-stat,
+  .social-hero-stat {
+    padding: 10px 8px;
+  }
+
+  .psych-hero-stat-value,
+  .social-hero-stat-value {
+    font-size: 18px;
+  }
+
+  .psych-hero-stat-label,
+  .social-hero-stat-label {
+    font-size: 10px;
+  }
+
+  /* Patient Grid */
+  .psych-patient-grid,
+  .social-patient-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .psych-patient-enhanced-stats,
+  .social-patient-enhanced-stats {
+    gap: 8px;
+  }
+
+  /* Enhanced Row */
+  .psych-enhanced-info,
+  .social-enhanced-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .psych-enhanced-patient,
+  .social-enhanced-patient {
+    min-width: auto;
+  }
+
+  .psych-enhanced-meta,
+  .social-enhanced-meta {
+    gap: 10px;
+  }
+
+  .psych-enhanced-main,
+  .social-enhanced-main {
+    padding: 12px 14px;
+  }
+
+  .psych-actions,
+  .social-actions {
+    flex-direction: column;
+  }
+
+  .psych-actions .btn,
+  .social-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Content Card */
+  .psych-content-header,
+  .social-content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+
+  .psych-content-title,
+  .social-content-title {
+    font-size: 14px;
+  }
+
+  /* Admin */
+  .admin-tabs {
+    padding: 3px;
+  }
+
+  .admin-tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .admin-tab-content {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .search-box {
+    min-width: auto;
+  }
+
+  .filter-bar select {
+    width: 100%;
+  }
+
+  /* Table */
+  .admin-table {
+    font-size: 12px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 10px 8px;
+  }
+
+  .avatar {
+    min-width: 120px;
+  }
+
+  /* Form */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .appointment-form {
+    gap: 12px;
+  }
+
+  /* Filter Tabs */
+  .filter-tabs {
+    width: 100%;
+  }
+
+  .filter-tabs button {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  /* Pagination */
+  .pagination {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .pagination-controls {
+    justify-content: center;
+  }
+
+  /* Coord appointments list */
+  .coord-appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Empty State */
+  .empty-state {
+    padding: 32px 16px;
+  }
+
+  .empty-state-title {
+    font-size: 16px;
+  }
+
+  .empty-state-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .psych-hero-stats,
+  .social-hero-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+
+  .psych-hero-stat,
+  .social-hero-stat {
+    padding: 8px 6px;
+  }
+
+  .psych-hero-stat-value,
+  .social-hero-stat-value {
+    font-size: 16px;
+  }
+
+  .psych-patient-mini-stat strong,
+  .social-patient-mini-stat strong {
+    font-size: 14px;
+  }
+
+  .psych-enhanced-meta,
+  .social-enhanced-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .admin-table {
+    font-size: 11px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 8px 6px;
+  }
+
+  .role-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+}

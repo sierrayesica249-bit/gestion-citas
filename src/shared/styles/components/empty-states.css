@@ -1,0 +1,99 @@
+/* ============================================
+   EMPTY STATES — Component Library
+   ============================================ */
+
+/* ── Base Empty State ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  min-height: 300px;
+}
+
+/* ── Icon ── */
+.empty-state-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-tertiary);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-6);
+}
+
+.empty-state-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* ── Content ── */
+.empty-state-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.empty-state-description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 400px;
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-relaxed);
+}
+
+/* ── Action ── */
+.empty-state-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ── Compact ── */
+.empty-state-compact {
+  padding: var(--space-8) var(--space-4);
+  min-height: 200px;
+}
+
+.empty-state-compact .empty-state-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-4);
+}
+
+.empty-state-compact .empty-state-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.empty-state-compact .empty-state-title {
+  font-size: var(--text-base);
+}
+
+.empty-state-compact .empty-state-description {
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Inline ── */
+.empty-state-inline {
+  padding: var(--space-6);
+  min-height: auto;
+  background-color: var(--surface-primary);
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-lg);
+}
+
+/* ── With Illustration ── */
+.empty-state-illustration {
+  width: 200px;
+  height: 150px;
+  margin-bottom: var(--space-6);
+  opacity: 0.8;
+}

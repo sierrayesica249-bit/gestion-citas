@@ -1,5 +1,5 @@
 import { supabase } from "../../../lib/supabase";
-import { addDays, isWeekend, format } from "date-fns";
+
 
 // CLASE Repository: encapsula todo el acceso a datos de citas
 // Principio SOLID: Dependency Inversion (dependemos de abstracciones)
@@ -12,8 +12,8 @@ export class AppointmentRepository {
       .select(
         `
         *,
-        dependencies (name, color),
-        profiles!professional_id (full_name)
+        dependencies!appointments_dependency_id_fkey (name, color),
+        profiles!appointments_professional_id_fkey (full_name)
       `,
       )
       .single();
@@ -26,9 +26,9 @@ export class AppointmentRepository {
   static async fetch({ userId, dependencyId, status, dateFrom, dateTo }) {
     let query = supabase.from("appointments").select(`
         *,
-        dependencies (name, color),
-        profiles!user_id (full_name, document_number),
-        professional:profiles!professional_id (full_name)
+        dependencies!appointments_dependency_id_fkey (name, color),
+        profiles!appointments_user_id_fkey (full_name, document_number),
+        professional:profiles!appointments_professional_id_fkey (full_name)
       `);
 
     // Filtros dinámicos

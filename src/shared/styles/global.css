@@ -1,30 +1,31 @@
-@import "./variables.css";
-@import "./buttons.css";
+/* ============================================
+   GLOBAL STYLES — SENA Bienestar
+   Calm Professional Design System
+   ============================================ */
+
+/* ── Design Tokens ── */
+@import "./tokens.css";
+
+/* ── Base Reset & Animations ── */
+@import "./base/reset.css";
+@import "./base/animations.css";
+
+/* ── Component Library ── */
+@import "./components/buttons.css";
+@import "./components/cards.css";
+@import "./components/forms.css";
+@import "./components/tables.css";
+@import "./components/badges.css";
+@import "./components/modals.css";
+@import "./components/empty-states.css";
+@import "./components/tabs.css";
+@import "./components/tooltips.css";
+
+/* ── Feature Styles (legacy) ── */
 @import "./layout.css";
 @import "./auth.css";
 @import "./appointments.css";
 @import "./admin.css";
 @import "./dashboard.css";
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--sena-gray);
-  color: var(--sena-dark);
-  line-height: 1.5;
-}
-
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+@import "./profile.css";
+@import "./roles-bonitos.css";

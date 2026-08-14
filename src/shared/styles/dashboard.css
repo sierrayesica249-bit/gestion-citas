@@ -1,0 +1,1280 @@
+/* ============================================
+   DASHBOARD — KPIs, Charts, Tables
+   Calm Professional Design
+   ============================================ */
+
+/* ── Coordination Dashboard ── */
+.coordination-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Dashboard Header ── */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.dashboard-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+.dashboard-header p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* ── Date Filter ── */
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  flex-wrap: wrap;
+}
+
+.date-filter svg {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.date-filter span {
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+}
+
+.date-filter input[type="date"] {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  background-color: var(--surface-primary);
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.date-filter input[type="date"]:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.1);
+}
+
+/* ── KPI Grid ── */
+.kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+/* ── KPI Card (legacy support) ── */
+.kpi-card {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.kpi-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.kpi-card h3 {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.kpi-value {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-none);
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  margin-top: var(--space-2);
+}
+
+.kpi-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  padding: var(--space-0-5) var(--space-2);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-3);
+}
+
+.kpi-trend.positive {
+  background-color: var(--success-light);
+  color: var(--success-dark);
+}
+
+.kpi-trend.negative {
+  background-color: var(--error-light);
+  color: var(--error-dark);
+}
+
+/* ── Charts Grid ── */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.chart-container {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.chart-container h3 {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Professionals Section ── */
+.professionals-section {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.professionals-section .table-container {
+  padding: 0;
+  border: none;
+}
+
+.professionals-section h3 {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  padding: var(--space-5);
+  margin-bottom: 0;
+}
+
+/* ── Professional Table ── */
+.profesional-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.profesional-table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  background-color: var(--surface-secondary);
+}
+
+.profesional-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.profesional-table tbody tr {
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.profesional-table tbody tr:hover {
+  background-color: var(--surface-secondary);
+}
+
+.profesional-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Efficiency Bar ── */
+.efficiency-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 140px;
+}
+
+.efficiency-bar span {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  min-width: 40px;
+  font-weight: var(--font-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.efficiency-fill {
+  height: 6px;
+  border-radius: var(--radius-full);
+  flex: 1;
+  background-color: var(--gray-100);
+  overflow: hidden;
+}
+
+.efficiency-fill-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+/* ── Dashboard Container ── */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Loading Screen ── */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+}
+
+.loading-screen .spinner {
+  width: 32px;
+  height: 32px;
+}
+
+/* ── Empty State ── */
+.empty-state {
+  text-align: center;
+  padding: var(--space-12) var(--space-4);
+  color: var(--text-tertiary);
+}
+
+.empty-state p {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-4);
+  color: var(--text-secondary);
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--space-4);
+  animation: fadeIn var(--duration-fast) var(--ease-out);
+}
+
+.modal-content {
+  background-color: var(--surface-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: modalSlideIn var(--duration-slow) var(--ease-out);
+}
+
+.modal-content h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+/* ── Error ── */
+.error {
+  color: var(--error);
+  font-size: var(--text-xs);
+  margin-top: var(--space-1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .kpis-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpis-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .date-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-filter input[type="date"] {
+    width: 100%;
+  }
+}
+
+/* ── Coordination Appointments ── */
+.coord-appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coord-apt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  gap: 12px;
+  transition: box-shadow 0.15s ease;
+}
+
+.coord-apt-row:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.coord-apt-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.coord-apt-student {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 160px;
+}
+
+.coord-apt-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.coord-apt-name {
+  display: block;
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+}
+
+.coord-apt-doc {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.coord-apt-dep {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.coord-apt-datetime {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.coord-apt-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.coord-status-pending { background: #fef3c7; color: #92400e; }
+.coord-status-confirmed { background: #dbeafe; color: #1e40af; }
+.coord-status-completed { background: #d1fae5; color: #065f46; }
+.coord-status-cancelled { background: #fee2e2; color: #991b1b; }
+.coord-status-no_show { background: #f3f4f6; color: #6b7280; }
+
+.coord-apt-actions {
+  flex-shrink: 0;
+}
+
+.coord-apt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .coord-apt-info {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .coord-apt-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Simple Bar Charts ── */
+.simple-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.simple-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.simple-bar-label {
+  width: 120px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.simple-bar-track {
+  flex: 1;
+  height: 24px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  gap: 2px;
+}
+
+.simple-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+  min-width: 2px;
+}
+
+.simple-bar-value {
+  width: 36px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+}
+
+.simple-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding-top: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* ============================================
+   COORDINATION DASHBOARD — Styles
+   ============================================ */
+
+.coord-hero {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 50%, #166534 100%);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+}
+
+.coord-hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.coord-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.coord-hero-icon {
+  font-size: 32px;
+}
+
+.coord-hero-text h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.coord-hero-text p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 4px 0 0 0;
+}
+
+.coord-hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.coord-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.coord-hero-stat {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.coord-hero-stat-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.coord-hero-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.coord-hero-stat-label {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+/* ── Actions Bar ── */
+.coord-actions-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.coord-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.coord-action-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.coord-action-btn.primary {
+  background: #16a34a;
+  color: white;
+  border-color: #16a34a;
+}
+
+.coord-action-btn.primary:hover {
+  background: #15803d;
+}
+
+/* ── Role Tabs ── */
+.role-tabs {
+  display: flex;
+  gap: 4px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 4px;
+  overflow-x: auto;
+}
+
+.role-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.role-tab:hover {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+.role-tab.active {
+  background: #16a34a;
+  color: white;
+}
+
+/* ── Filter Pills ── */
+.filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-pill:hover {
+  border-color: #16a34a;
+  color: #16a34a;
+}
+
+.filter-pill.active {
+  background: #16a34a;
+  color: white;
+  border-color: #16a34a;
+}
+
+/* ── Coord Sections ── */
+.coord-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.coord-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.coord-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.coord-section-body {
+  padding: 16px 20px;
+}
+
+/* ── Agenda ── */
+.coord-agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coord-agenda-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #f9fafb;
+  border-radius: 10px;
+}
+
+.coord-agenda-time {
+  font-size: 14px;
+  font-weight: 700;
+  color: #16a34a;
+  min-width: 50px;
+}
+
+.coord-agenda-student {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.coord-agenda-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.coord-agenda-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.coord-agenda-dep {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.coord-apt-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* ── Professional Ranking ── */
+.coord-prof-rank {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.coord-prof-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #f9fafb;
+  border-radius: 10px;
+}
+
+.coord-prof-rank-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #16a34a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.coord-prof-rank-num.rank-2 {
+  background: #6b7280;
+}
+
+.coord-prof-rank-num.rank-3 {
+  background: #d97706;
+}
+
+.coord-prof-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.coord-prof-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.coord-prof-count {
+  display: block;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.coord-prof-efficiency {
+  font-size: 14px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+/* ── New Appointment Row ── */
+.coord-apt-new-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  transition: box-shadow 0.15s;
+}
+
+.coord-apt-new-row:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.coord-apt-new-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.coord-apt-new-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.coord-apt-new-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.coord-apt-new-text strong {
+  display: block;
+  font-size: 13px;
+  color: #111827;
+}
+
+.coord-apt-new-text small {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.coord-apt-new-dep {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.coord-apt-new-datetime {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.coord-apt-new-datetime span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.coord-apt-new-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.coord-apt-new-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+}
+
+.btn-primary {
+  background: #16a34a;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #15803d;
+}
+
+.btn-success {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #16a34a;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+/* ============================================
+   RESPONSIVE — ALL DASHBOARDS
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .coord-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .coord-prof-rank {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero */
+  .coord-hero {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .coord-hero-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .coord-hero-left {
+    gap: 12px;
+  }
+
+  .coord-hero-icon {
+    font-size: 24px;
+  }
+
+  .coord-hero-text h1 {
+    font-size: 20px;
+  }
+
+  .coord-hero-text p {
+    font-size: 12px;
+  }
+
+  .coord-hero-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .coord-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .coord-hero-stat {
+    padding: 10px 8px;
+  }
+
+  .coord-hero-stat-value {
+    font-size: 18px;
+  }
+
+  .coord-hero-stat-label {
+    font-size: 10px;
+  }
+
+  /* Actions */
+  .coord-actions-bar {
+    gap: 6px;
+  }
+
+  .coord-action-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Tabs */
+  .role-tabs {
+    border-radius: 10px;
+    padding: 3px;
+  }
+
+  .role-tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Sections */
+  .coord-section-header {
+    padding: 12px 14px;
+  }
+
+  .coord-section-title {
+    font-size: 13px;
+  }
+
+  .coord-section-body {
+    padding: 12px 14px;
+  }
+
+  /* Agenda */
+  .coord-agenda-item {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .coord-agenda-time {
+    font-size: 12px;
+    min-width: 40px;
+  }
+
+  .coord-apt-status {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  /* Appointment Row */
+  .coord-apt-new-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .coord-apt-new-info {
+    width: 100%;
+  }
+
+  .coord-apt-new-name {
+    min-width: 120px;
+  }
+
+  .coord-apt-new-actions {
+    width: 100%;
+  }
+
+  .coord-apt-new-actions .btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Filter */
+  .coord-apt-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .filter-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  /* Date Filter */
+  .date-filter {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .date-filter input[type="date"] {
+    font-size: 12px;
+  }
+
+  /* Admin Tabs */
+  .admin-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .admin-tab {
+    white-space: nowrap;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  /* Table */
+  .admin-table {
+    font-size: 12px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 10px 8px;
+  }
+
+  /* User Management */
+  .filter-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coord-hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .coord-hero-stat {
+    padding: 8px 6px;
+  }
+
+  .coord-hero-stat-value {
+    font-size: 16px;
+  }
+
+  .coord-action-btn span:not(.coord-action-btn svg) {
+    display: none;
+  }
+
+  .coord-action-btn {
+    padding: 8px 10px;
+  }
+
+  .coord-prof-rank {
+    grid-template-columns: 1fr;
+  }
+
+  .coord-prof-card {
+    padding: 10px;
+  }
+}

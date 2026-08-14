@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import { AuthProvider } from "./providers/AuthProvider";
 import App from "./App";
 import "./shared/styles/global.css";
+import "./shared/styles/all-dashboards-responsive.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

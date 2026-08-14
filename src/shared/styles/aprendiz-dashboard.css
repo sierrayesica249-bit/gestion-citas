@@ -1,0 +1,971 @@
+/* ============================================
+   APRENDIZ DASHBOARD — Responsive Design
+   ============================================ */
+
+/* ── Layout ── */
+.ap-layout {
+  display: flex;
+  gap: 24px;
+  padding: 0 24px 24px 0;
+}
+
+.ap-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.ap-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Header ── */
+.ap-header {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  border-radius: 16px;
+  padding: 32px 40px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.ap-header-decor-1 {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ap-header-decor-2 {
+  position: absolute;
+  bottom: -50px;
+  right: 60px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ap-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ap-header-date {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.ap-header-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ap-header-subtitle {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.ap-btn-primary {
+  background: white;
+  color: #16a34a;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.ap-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ── KPI Cards ── */
+.ap-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.ap-kpi-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.ap-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ap-kpi-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ap-kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.ap-kpi-label {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* ── Mood Tracker ── */
+.ap-mood {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.ap-mood-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ap-mood-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ap-mood-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ap-mood-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.ap-mood-emojis {
+  display: flex;
+  gap: 8px;
+}
+
+.ap-mood-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.ap-mood-btn:hover {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.ap-mood-btn.active {
+  border-color: #16a34a;
+  background: #f0fdf4;
+  transform: scale(1.1);
+}
+
+/* ── Next Appointment ── */
+.ap-next-apt {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #16a34a;
+}
+
+.ap-next-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #16a34a;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.ap-next-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ap-next-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ap-next-date-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ap-next-day {
+  font-size: 22px;
+  font-weight: 700;
+  color: #16a34a;
+  line-height: 1;
+}
+
+.ap-next-month {
+  font-size: 10px;
+  font-weight: 600;
+  color: #16a34a;
+  text-transform: uppercase;
+}
+
+.ap-next-service {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ap-next-detail {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* ── Status Badge ── */
+.ap-status-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.ap-status-pending { background: #fef3c7; color: #92400e; }
+.ap-status-confirmed { background: #dbeafe; color: #1e40af; }
+.ap-status-completed { background: #d1fae5; color: #065f46; }
+.ap-status-cancelled { background: #fee2e2; color: #991b1b; }
+.ap-status-no_show { background: #f3f4f6; color: #6b7280; }
+
+/* ── Tabs Container ── */
+.ap-tabs-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.ap-tabs-header {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 24px;
+  align-items: center;
+}
+
+.ap-tabs {
+  display: flex;
+}
+
+.ap-tab {
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ap-tab:hover {
+  color: #16a34a;
+}
+
+.ap-tab.active {
+  color: #16a34a;
+  border-bottom-color: #16a34a;
+}
+
+.ap-tabs-count {
+  margin-left: auto;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* ── Appointment List ── */
+.ap-apt-list {
+  padding: 8px 0;
+}
+
+.ap-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ap-apt-row {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f3f4f6;
+  gap: 16px;
+  transition: background 0.15s;
+}
+
+.ap-apt-row:hover {
+  background: #f9fafb;
+}
+
+.ap-apt-date-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ap-apt-day {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.ap-apt-month {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.ap-apt-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e0e7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ap-apt-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ap-apt-service {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ap-apt-detail {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.ap-apt-cancel {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.ap-apt-cancel:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.ap-apt-arrow {
+  color: #d1d5db;
+  flex-shrink: 0;
+}
+
+/* ── Sidebar ── */
+.ap-sidebar-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.ap-sidebar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.ap-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ap-service-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.ap-service-item:hover {
+  background: #f9fafb;
+}
+
+.ap-service-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ap-service-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ap-service-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ap-service-desc {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.ap-service-arrow {
+  color: #d1d5db;
+  flex-shrink: 0;
+}
+
+.ap-btn-new-apt {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #16a34a;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s;
+}
+
+.ap-btn-new-apt:hover {
+  background: #15803d;
+}
+
+.ap-hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ap-hour-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ap-hour-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.ap-hour-service {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ap-hour-schedule {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 1px;
+}
+
+/* ── Modal ── */
+.ap-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.ap-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.ap-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.ap-modal-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ap-modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f3f4f6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.ap-modal-close:hover {
+  background: #e5e7eb;
+}
+
+/* ── Skeleton ── */
+.ap-skeleton-header {
+  height: 120px;
+  background: #e5e7eb;
+  border-radius: 16px;
+  animation: pulse 1.5s infinite;
+}
+
+.ap-skeleton-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.ap-skeleton-card {
+  height: 80px;
+  background: #e5e7eb;
+  border-radius: 12px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   RESPONSIVE — Tablet (≤1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .ap-layout {
+    flex-direction: column;
+    padding: 0 16px 16px 0;
+  }
+
+  .ap-sidebar {
+    width: 100%;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .ap-sidebar-card {
+    flex: 1;
+  }
+
+  .ap-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ap-header {
+    padding: 24px 28px;
+  }
+
+  .ap-header-title {
+    font-size: 26px;
+  }
+
+  .ap-skeleton-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Mobile (≤768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .ap-layout {
+    gap: 16px;
+    padding: 0 12px 12px 0;
+  }
+
+  .ap-main {
+    gap: 16px;
+  }
+
+  .ap-header {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .ap-header-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ap-header-title {
+    font-size: 22px;
+  }
+
+  .ap-header-subtitle {
+    font-size: 13px;
+  }
+
+  .ap-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ap-kpis {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .ap-kpi-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .ap-kpi-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ap-kpi-value {
+    font-size: 22px;
+  }
+
+  .ap-mood {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    padding: 16px 20px;
+  }
+
+  .ap-mood-info {
+    justify-content: center;
+  }
+
+  .ap-mood-emojis {
+    justify-content: center;
+  }
+
+  .ap-mood-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .ap-next-apt {
+    padding: 16px 20px;
+  }
+
+  .ap-next-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ap-next-info {
+    gap: 12px;
+  }
+
+  .ap-next-date-box {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ap-next-day {
+    font-size: 18px;
+  }
+
+  .ap-next-service {
+    font-size: 14px;
+  }
+
+  .ap-tabs-header {
+    padding: 0 16px;
+    overflow-x: auto;
+  }
+
+  .ap-tab {
+    padding: 12px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .ap-apt-row {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .ap-apt-date-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ap-apt-day {
+    font-size: 16px;
+  }
+
+  .ap-apt-icon {
+    display: none;
+  }
+
+  .ap-status-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .ap-apt-arrow {
+    display: none;
+  }
+
+  /* Sidebar apilado */
+  .ap-sidebar {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ap-sidebar-card {
+    padding: 16px;
+  }
+
+  .ap-services-list {
+    gap: 8px;
+  }
+
+  .ap-service-item {
+    padding: 10px;
+  }
+
+  .ap-skeleton-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ap-skeleton-card {
+    height: 70px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Small Mobile (≤480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .ap-layout {
+    padding: 0 8px 8px 0;
+  }
+
+  .ap-header {
+    padding: 16px;
+  }
+
+  .ap-header-title {
+    font-size: 20px;
+  }
+
+  .ap-kpis {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .ap-kpi-card {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .ap-kpi-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .ap-kpi-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ap-kpi-value {
+    font-size: 20px;
+  }
+
+  .ap-kpi-label {
+    font-size: 11px;
+  }
+
+  .ap-mood-emojis {
+    gap: 6px;
+  }
+
+  .ap-mood-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .ap-next-date-box {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ap-next-day {
+    font-size: 16px;
+  }
+
+  .ap-next-month {
+    font-size: 9px;
+  }
+
+  .ap-tabs-count {
+    font-size: 11px;
+  }
+
+  .ap-apt-row {
+    padding: 10px 12px;
+  }
+
+  .ap-apt-cancel {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ap-modal {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .ap-modal-header h2 {
+    font-size: 16px;
+  }
+
+  .ap-skeleton-kpis {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .ap-skeleton-card {
+    height: 60px;
+  }
+}

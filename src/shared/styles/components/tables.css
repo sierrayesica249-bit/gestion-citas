@@ -1,0 +1,246 @@
+/* ============================================
+   TABLES — Component Library
+   ============================================ */
+
+/* ── Table Container ── */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-primary);
+}
+
+/* ── Base Table ── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.table thead {
+  background-color: var(--surface-secondary);
+}
+
+.table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  border-bottom: 1px solid var(--border-default);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.table th[aria-sort] {
+  cursor: pointer;
+}
+
+.table th[aria-sort]:hover {
+  color: var(--text-primary);
+}
+
+.table td {
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.table tbody tr {
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.table tbody tr:hover {
+  background-color: var(--surface-secondary);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Table Cell Variants ── */
+.table-cell-primary {
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.table-cell-secondary {
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+}
+
+.table-cell-muted {
+  color: var(--text-tertiary);
+}
+
+.table-cell-right {
+  text-align: right;
+}
+
+.table-cell-center {
+  text-align: center;
+}
+
+/* ── Table Row States ── */
+.table-row-inactive {
+  opacity: 0.5;
+}
+
+.table-row-selected {
+  background-color: var(--green-50);
+}
+
+/* ── Table Actions ── */
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  justify-content: flex-end;
+}
+
+/* ── Table Empty ── */
+.table-empty {
+  text-align: center;
+  padding: var(--space-12) var(--space-4);
+  color: var(--text-tertiary);
+}
+
+.table-empty svg {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-4);
+  opacity: 0.5;
+}
+
+.table-empty p {
+  font-size: var(--text-sm);
+}
+
+/* ── Pagination ── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.pagination-info {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: var(--surface-secondary);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+.pagination-btn.active {
+  background-color: var(--green-500);
+  border-color: var(--green-500);
+  color: var(--text-inverse);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+}
+
+/* ── Mobile Card View ── */
+@media (max-width: 768px) {
+  .table-container {
+    border: none;
+    background: transparent;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+  }
+
+  .table tr {
+    background-color: var(--surface-primary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: right;
+  }
+
+  .table td:last-child {
+    border-bottom: none;
+    padding-top: var(--space-3);
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    text-align: left;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+  }
+
+  .table-actions {
+    justify-content: flex-start;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}

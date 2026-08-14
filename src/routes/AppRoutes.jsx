@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { useAuth } from "../providers/AuthProvider";
 import { Navigate } from "react-router-dom";
+import { Layout } from "../shared/components/Layout";
 
 // Lazy loading para code splitting (mejor performance)
 import { lazy, Suspense } from "react";
@@ -21,6 +22,26 @@ const ProfessionalDashboard = lazy(
   () => import("../features/appointments/pages/ProfessionalDashboard"),
 );
 
+// Privadas - Psicología
+const PsicologiaDashboard = lazy(
+  () => import("../features/psychology/pages/PsicologiaDashboard"),
+);
+
+// Privadas - Enfermería
+const EnfermeriaDashboard = lazy(
+  () => import("../features/enfermeria/pages/EnfermeriaDashboard"),
+);
+
+// Privadas - Trabajo Social
+const TrabajoSocialDashboard = lazy(
+  () => import("../features/social-work/pages/TrabajoSocialDashboard"),
+);
+
+// Perfil
+const ProfilePage = lazy(
+  () => import("../features/profile/pages/ProfilePage"),
+);
+
 // Privadas - Coordinación
 const CoordinationDashboard = lazy(
   () => import("../features/dashboard/pages/CoordinationDashboard"),
@@ -31,19 +52,47 @@ const AdminDashboard = lazy(
   () => import("../features/admin/pages/AdminDashboard"),
 );
 
-export function AppRoutes() {
-  const { isAprendiz, isProfessional, isCoordination, isAdmin } = useAuth();
+function PrivateLayout({ children }) {
+  return (
+    <Layout>
+      <Suspense fallback={<div className="loading-screen">Cargando...</div>}>
+        {children}
+      </Suspense>
+    </Layout>
+  );
+}
 
-  // Redirección inteligente según rol (después del login)
+export function AppRoutes() {
+   const { user, profile, loading, isCoordination, isAdmin, hasRole } = useAuth();
+
   const getHomeRoute = () => {
     if (isAdmin()) return "/admin";
     if (isCoordination()) return "/coordination";
-    if (isProfessional()) return "/professional";
-    return "/dashboard"; // Aprendiz por defecto
+    if (hasRole("PSICOLOGIA")) return "/psychology";
+    if (hasRole("ENFERMERIA")) return "/enfermeria";
+    if (hasRole("TRABAJO_SOCIAL")) return "/social-work";
+    return "/dashboard";
   };
 
+  // Si hay usuario logueado pero perfil aún no cargado, esperar con timeout
+  if (user && !profile && !loading) {
+    return (
+      <div className="loading-screen">
+        <div className="spinner" />
+        <p>Cargando perfil...</p>
+        <button 
+          className="btn btn-primary" 
+          style={{ marginTop: "1rem" }}
+          onClick={() => window.location.href = "/login"}
+        >
+          Volver al login
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <Suspense fallback={<div>Cargando...</div>}>
+    <Suspense fallback={<div className="loading-screen">Cargando...</div>}>
       <Routes>
         {/* RUTAS PÚBLICAS */}
         <Route path="/login" element={<Login />} />
@@ -54,8 +103,10 @@ export function AppRoutes() {
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute requiredRoles="APRENDIZ">
-              <AprendizDashboard />
+            <ProtectedRoute requiredRoles={["APRENDIZ", "ENFERMERIA", "PSICOLOGIA", "TRABAJO_SOCIAL", "COORDINACION", "SUPERADMIN"]}>
+              <PrivateLayout>
+                <AprendizDashboard />
+              </PrivateLayout>
             </ProtectedRoute>
           }
         />
@@ -67,7 +118,45 @@ export function AppRoutes() {
             <ProtectedRoute
               requiredRoles={["PSICOLOGIA", "ENFERMERIA", "TRABAJO_SOCIAL"]}
             >
-              <ProfessionalDashboard />
+              <PrivateLayout>
+                <ProfessionalDashboard />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* RUTAS PROTEGIDAS - PSICOLOGÍA */}
+        <Route
+          path="/psychology"
+          element={
+            <ProtectedRoute requiredRoles="PSICOLOGIA">
+              <PrivateLayout>
+                <PsicologiaDashboard />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* RUTAS PROTEGIDAS - ENFERMERÍA */}
+        <Route
+          path="/enfermeria"
+          element={
+            <ProtectedRoute requiredRoles="ENFERMERIA">
+              <PrivateLayout>
+                <EnfermeriaDashboard />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* RUTAS PROTEGIDAS - TRABAJO SOCIAL */}
+        <Route
+          path="/social-work"
+          element={
+            <ProtectedRoute requiredRoles="TRABAJO_SOCIAL">
+              <PrivateLayout>
+                <TrabajoSocialDashboard />
+              </PrivateLayout>
             </ProtectedRoute>
           }
         />
@@ -77,17 +166,34 @@ export function AppRoutes() {
           path="/coordination"
           element={
             <ProtectedRoute requiredRoles={["COORDINACION", "SUPERADMIN"]}>
-              <CoordinationDashboard />
+              <PrivateLayout>
+                <CoordinationDashboard />
+              </PrivateLayout>
             </ProtectedRoute>
           }
         />
+        <Route path="/coordinacion" element={<Navigate to="/coordination" replace />} />
 
         {/* RUTAS PROTEGIDAS - ADMIN */}
         <Route
           path="/admin"
           element={
-            <ProtectedRoute requiredRoles="SUPERADMIN">
-              <AdminDashboard />
+            <ProtectedRoute requiredRoles={["SUPERADMIN", "COORDINACION"]}>
+              <PrivateLayout>
+                <AdminDashboard />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* RUTAS PROTEGIDAS - PERFIL (todos los roles) */}
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <PrivateLayout>
+                <ProfilePage />
+              </PrivateLayout>
             </ProtectedRoute>
           }
         />
@@ -96,9 +202,8 @@ export function AppRoutes() {
         <Route path="/" element={<Navigate to={getHomeRoute()} replace />} />
 
         {/* 404 */}
-        <Route path="*" element={<div>404 - Página no encontrada</div>} />
+        <Route path="*" element={<div>404 - Pagina no encontrada</div>} />
       </Routes>
     </Suspense>
   );
-
 }

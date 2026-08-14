@@ -10,7 +10,6 @@ export function ProtectedRoute({
   const { user, profile, loading, hasRole } = useAuth();
   const location = useLocation();
 
-  // 1. Esperar a cargar sesión
   if (loading) {
     return (
       <div
@@ -21,14 +20,31 @@ export function ProtectedRoute({
           height: "100vh",
         }}
       >
+        <div className="spinner" />
         <p>Cargando sesión...</p>
       </div>
     );
   }
 
-  // 2. No está logueado → Login
   if (!user) {
     return <Navigate to={fallback} state={{ from: location }} replace />;
+  }
+
+  // Esperar a que el perfil esté disponible para verificar roles
+  if (requiredRoles && !profile) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <div className="spinner" />
+        <p>Cargando perfil...</p>
+      </div>
+    );
   }
 
   // 3. Requiere roles específicos y no los tiene → Dashboard o Unauthorized

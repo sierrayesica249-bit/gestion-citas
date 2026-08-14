@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { AppointmentRepository } from "../api/appointments.repository";
 import { toast } from "sonner";
 import { useAuth } from "../../../providers/AuthProvider";
+import { supabase } from "../../../lib/supabase";
 
 // ESTADOS DE CARGA ESPECÍFICOS (mejor UX que un genérico "loading")
 const STATUS = {
@@ -13,10 +14,10 @@ const STATUS = {
 };
 
 export function useAppointments() {
-  const [appointments, setAppointments] = useState([]);//array vaciopara amacenar cita
-  const [status, setStatus] = useState(STATUS.IDLE);//actualizar datos
+  const [appointments, setAppointments] = useState([]);
+  const [status, setStatus] = useState(STATUS.IDLE);
   const [error, setError] = useState(null);
-  const { user, profile, isAprendiz } = useAuth();
+  const { user, profile, isAprendiz, isProfessional, isAdmin, isCoordination } = useAuth();
 
   // FETCH: Obtener citas según el rol automáticamente
   const fetchAppointments = useCallback(
@@ -26,9 +27,16 @@ export function useAppointments() {
 
       try {
         // RBAC implícito: los filtros dependen del rol
-        const roleFilters = isAprendiz()
-          ? { userId: user.id }
-          : { dependencyId: profile.dependency_id };
+        let roleFilters = {};
+        if (isAprendiz()) {
+          roleFilters = { userId: user.id };
+        } else if (isProfessional()) {
+          // Profesional ve citas de su dependencia
+          roleFilters = { dependencyId: profile?.dependency_id };
+        } else if (isCoordination() || isAdmin()) {
+          // Coordinación/Admin ven todas las citas (sin filtro de dependencia)
+          roleFilters = {};
+        }
 
         const data = await AppointmentRepository.fetch({
           ...roleFilters,
@@ -36,7 +44,7 @@ export function useAppointments() {
         });
         setAppointments(data);
         return data;
-      } catch (err) { // para manejo de error
+      } catch (err) {
         setError(err.message);
         toast.error("Error cargando citas");
         return [];
@@ -44,20 +52,26 @@ export function useAppointments() {
         setStatus(STATUS.IDLE);
       }
     },
-    [user, profile, isAprendiz],
+    [user, profile, isAprendiz, isProfessional, isAdmin, isCoordination],
   );
 
   // CREATE: Crear cita con validaciones de negocio
-  const createAppointment = async (formData) => {
+  const createAppointment = useCallback(async (formData) => {
     setStatus(STATUS.CREATING);
 
     try {
-      // Regla de negocio: Máximo 2 citas pendientes
+      // Regla de negocio: máximo de citas pendientes (configurable en system_config)
       if (isAprendiz()) {
         const pendingCount = await AppointmentRepository.countPending(user.id);
-        if (pendingCount >= 2) {
+        const { data: cfg } = await supabase
+          .from("system_config")
+          .select("value")
+          .eq("key", "appointment_limits")
+          .maybeSingle();
+        const maxPending = cfg?.value?.max_pending_per_user ?? 2;
+        if (pendingCount >= maxPending) {
           throw new Error(
-            "Ya tienes 2 citas pendientes. Espera a que se atienda una.",
+            `Ya tienes ${maxPending} citas pendientes. Espera a que se atienda una.`,
           );
         }
       }
@@ -91,10 +105,10 @@ export function useAppointments() {
     } finally {
       setStatus(STATUS.IDLE);
     }
-  };
+  }, [user, isAprendiz]);
 
   // UPDATE STATUS: Cambiar estado (confirmar, completar, cancelar)
-  const updateStatus = async (appointmentId, newStatus, notes = null) => {
+  const updateStatus = useCallback(async (appointmentId, newStatus, notes = null) => {
     setStatus(STATUS.UPDATING);
 
     try {
@@ -121,19 +135,24 @@ export function useAppointments() {
     } finally {
       setStatus(STATUS.IDLE);
     }
-  };
+  }, []);
 
-  // CANCEL: Cancelar cita (solo si está pending)
-  const cancelAppointment = async (appointmentId) => {
+  // CANCEL: Cancelar cita (pending o confirmed)
+  const cancelAppointment = useCallback(async (appointmentId) => {
     const appointment = appointments.find((a) => a.id === appointmentId);
 
-    if (appointment.status !== "pending") {
-      toast.error("Solo puedes cancelar citas pendientes");
+    if (!appointment) {
+      toast.error("Cita no encontrada");
+      return { success: false };
+    }
+
+    if (appointment.status !== "pending" && appointment.status !== "confirmed") {
+      toast.error("Solo se pueden cancelar citas pendientes o confirmadas");
       return { success: false };
     }
 
     return updateStatus(appointmentId, "cancelled");
-  };
+  }, [updateStatus, appointments]);
 
   return {
     appointments,

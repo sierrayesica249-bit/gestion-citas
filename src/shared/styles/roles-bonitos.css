@@ -1,0 +1,1818 @@
+/* ============================================
+   ROLES BONITOS — Coordinación / Psicología / Trabajo Social
+   SENA Branded Enhanced Design
+   ============================================ */
+
+/* ============================================
+   1. COORDINATION DASHBOARD — Green Theme
+   ============================================ */
+
+.coord-hero {
+  position: relative;
+  background: linear-gradient(135deg, #0a3d00 0%, #1a6b00 30%, #39a900 70%, #22c55e 100%);
+  border-radius: 20px;
+  padding: 32px 36px;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(57, 169, 0, 0.3);
+}
+
+.coord-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.coord-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 8s ease-in-out infinite reverse;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.coord-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.coord-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.coord-hero-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border: 1px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+.coord-hero-text h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.coord-hero-text p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+  font-weight: 400;
+}
+
+.coord-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.25);
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+}
+
+/* ── Hero Stats Row ── */
+.coord-hero-stats {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.coord-hero-stat {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.coord-hero-stat:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+.coord-hero-stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.coord-hero-stat-label {
+  font-size: 12px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+}
+
+.coord-hero-stat-icon {
+  float: right;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+/* ── Quick Actions Bar ── */
+.coord-actions-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.coord-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.coord-action-btn:hover {
+  border-color: #39a900;
+  color: #1a6b00;
+  box-shadow: 0 4px 12px rgba(57, 169, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.coord-action-btn.primary {
+  background: linear-gradient(135deg, #39a900, #22c55e);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(57, 169, 0, 0.3);
+}
+
+.coord-action-btn.primary:hover {
+  box-shadow: 0 6px 20px rgba(57, 169, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ── Coordination Sections ── */
+.coord-section {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.coord-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.coord-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.coord-section-title svg {
+  color: #39a900;
+}
+
+.coord-section-body {
+  padding: 20px 24px;
+}
+
+/* ── Today Agenda ── */
+.coord-agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coord-agenda-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border-left: 4px solid #39a900;
+  transition: all 0.2s ease;
+}
+
+.coord-agenda-item:hover {
+  background: #f0fdf4;
+  transform: translateX(4px);
+}
+
+.coord-agenda-time {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a6b00;
+  min-width: 50px;
+  text-align: center;
+}
+
+.coord-agenda-student {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.coord-agenda-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #39a900, #22c55e);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.coord-agenda-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+}
+
+.coord-agenda-dep {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── Professional Ranking Cards ── */
+.coord-prof-rank {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.coord-prof-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 14px;
+  border: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.coord-prof-card:hover {
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+}
+
+.coord-prof-rank-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #39a900, #22c55e);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.coord-prof-rank-num.rank-2 {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+}
+
+.coord-prof-rank-num.rank-3 {
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+}
+
+.coord-prof-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.coord-prof-name {
+  display: block;
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.coord-prof-count {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.coord-prof-efficiency {
+  width: 60px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.coord-prof-efficiency span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #39a900;
+}
+
+/* ── Monthly Mini Chart ── */
+.coord-monthly-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 140px;
+  padding: 0 4px;
+}
+
+.coord-monthly-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.coord-monthly-bar {
+  width: 100%;
+  max-width: 40px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, #39a900 0%, #86efac 100%);
+  transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 4px;
+  position: relative;
+}
+
+.coord-monthly-bar:hover {
+  filter: brightness(1.1);
+}
+
+.coord-monthly-bar.completed {
+  background: linear-gradient(180deg, #22c55e 0%, #86efac 100%);
+}
+
+.coord-monthly-label {
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.coord-monthly-val {
+  font-size: 11px;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* ── Coordination Appointments Enhancement ── */
+.coord-apt-new-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.coord-apt-new-row:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.coord-apt-new-row[data-status="pending"] { border-left-color: #f59e0b; }
+.coord-apt-new-row[data-status="confirmed"] { border-left-color: #3b82f6; }
+.coord-apt-new-row[data-status="completed"] { border-left-color: #22c55e; }
+.coord-apt-new-row[data-status="cancelled"] { border-left-color: #ef4444; }
+
+.coord-apt-new-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.coord-apt-new-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 160px;
+}
+
+.coord-apt-new-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #39a900, #22c55e);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.coord-apt-new-text strong {
+  display: block;
+  font-size: 14px;
+  color: #111827;
+}
+
+.coord-apt-new-text small {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.coord-apt-new-dep {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.coord-apt-new-datetime {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.coord-apt-new-datetime span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.coord-apt-new-status {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.coord-apt-new-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   2. PSICOLOGÍA DASHBOARD — Purple Theme
+   ============================================ */
+
+.psych-hero {
+  position: relative;
+  background: linear-gradient(135deg, #2e1065 0%, #581c87 30%, #7c3aed 70%, #a78bfa 100%);
+  border-radius: 20px;
+  padding: 32px 36px;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.3);
+}
+
+.psych-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.psych-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 8s ease-in-out infinite reverse;
+}
+
+.psych-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.psych-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.psych-hero-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border: 1px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+.psych-hero-text h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+
+.psych-hero-text p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.psych-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* ── Psych Stats Row ── */
+.psych-hero-stats {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.psych-hero-stat {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.psych-hero-stat:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+.psych-hero-stat-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.psych-hero-stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.psych-hero-stat-label {
+  font-size: 12px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+}
+
+/* ── Psych Content Cards ── */
+.psych-content-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.psych-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.psych-content-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.psych-content-title svg {
+  color: #7c3aed;
+}
+
+/* ── Enhanced Psych Appointment Row ── */
+.psych-enhanced-row {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.psych-enhanced-row[data-status="pending"] { border-left-color: #f59e0b; }
+.psych-enhanced-row[data-status="confirmed"] { border-left-color: #7c3aed; }
+.psych-enhanced-row[data-status="completed"] { border-left-color: #22c55e; }
+
+.psych-enhanced-row:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.psych-enhanced-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.psych-enhanced-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+.psych-enhanced-patient {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.psych-enhanced-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.psych-enhanced-name {
+  display: block;
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+}
+
+.psych-enhanced-doc {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.psych-enhanced-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.psych-enhanced-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.psych-enhanced-status {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.psych-enhanced-status[data-s="pending"] { background: #fef3c7; color: #92400e; }
+.psych-enhanced-status[data-s="confirmed"] { background: #ede9fe; color: #5b21b6; }
+.psych-enhanced-status[data-s="completed"] { background: #d1fae5; color: #065f46; }
+.psych-enhanced-status[data-s="cancelled"] { background: #fee2e2; color: #991b1b; }
+.psych-enhanced-status[data-s="no_show"] { background: #f3f4f6; color: #6b7280; }
+
+/* ── Risk Badge ── */
+.psych-risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.psych-risk-badge.bajo { background: #d1fae5; color: #065f46; }
+.psych-risk-badge.medio { background: #fef3c7; color: #92400e; }
+.psych-risk-badge.alto { background: #fee2e2; color: #991b1b; }
+
+/* ── Psych Patient Cards ── */
+.psych-patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.psych-patient-enhanced {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.psych-patient-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+.psych-patient-enhanced:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+}
+
+.psych-patient-enhanced-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.psych-patient-enhanced-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.psych-patient-enhanced-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.psych-patient-enhanced-name {
+  display: block;
+  font-weight: 600;
+  color: #111827;
+  font-size: 15px;
+}
+
+.psych-patient-enhanced-doc {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.psych-patient-enhanced-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.psych-patient-mini-stat {
+  text-align: center;
+  padding: 8px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.psych-patient-mini-stat strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.psych-patient-mini-stat small {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================
+   3. TRABAJO SOCIAL DASHBOARD — Amber Theme
+   ============================================ */
+
+.social-hero {
+  position: relative;
+  background: linear-gradient(135deg, #78350f 0%, #92400e 30%, #d97706 70%, #f59e0b 100%);
+  border-radius: 20px;
+  padding: 32px 36px;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(217, 119, 6, 0.3);
+}
+
+.social-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.social-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 8s ease-in-out infinite reverse;
+}
+
+.social-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.social-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.social-hero-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border: 1px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+.social-hero-text h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+
+.social-hero-text p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.social-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* ── Social Stats Row ── */
+.social-hero-stats {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.social-hero-stat {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.social-hero-stat:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+.social-hero-stat-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.social-hero-stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.social-hero-stat-label {
+  font-size: 12px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+}
+
+/* ── Social Content Cards ── */
+.social-content-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.social-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.social-content-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.social-content-title svg {
+  color: #d97706;
+}
+
+/* ── Social Appointment Row ── */
+.social-enhanced-row {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.social-enhanced-row[data-status="pending"] { border-left-color: #f59e0b; }
+.social-enhanced-row[data-status="confirmed"] { border-left-color: #3b82f6; }
+.social-enhanced-row[data-status="completed"] { border-left-color: #22c55e; }
+
+.social-enhanced-row:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.social-enhanced-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.social-enhanced-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+.social-enhanced-patient {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.social-enhanced-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.social-enhanced-name {
+  display: block;
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+}
+
+.social-enhanced-doc {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.social-enhanced-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.social-enhanced-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.social-enhanced-status {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.social-enhanced-status[data-s="pending"] { background: #fef3c7; color: #92400e; }
+.social-enhanced-status[data-s="confirmed"] { background: #dbeafe; color: #1e40af; }
+.social-enhanced-status[data-s="completed"] { background: #d1fae5; color: #065f46; }
+.social-enhanced-status[data-s="cancelled"] { background: #fee2e2; color: #991b1b; }
+.social-enhanced-status[data-s="no_show"] { background: #f3f4f6; color: #6b7280; }
+
+/* ── Social Follow-up Types ── */
+.social-followup-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.social-followup-badge.seguimiento { background: #dbeafe; color: #1e40af; }
+.social-followup-badge.referral { background: #fef3c7; color: #92400e; }
+.social-followup-badge.urgente { background: #fee2e2; color: #991b1b; }
+
+/* ── Social Patient Cards ── */
+.social-patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.social-patient-enhanced {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-patient-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+}
+
+.social-patient-enhanced:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.1);
+  transform: translateY(-2px);
+}
+
+.social-patient-enhanced-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.social-patient-enhanced-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-patient-enhanced-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.social-patient-enhanced-name {
+  display: block;
+  font-weight: 600;
+  color: #111827;
+  font-size: 15px;
+}
+
+.social-patient-enhanced-doc {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.social-patient-enhanced-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.social-patient-mini-stat {
+  text-align: center;
+  padding: 8px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.social-patient-mini-stat strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #d97706;
+}
+
+.social-patient-mini-stat small {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================
+   SHARED — Notes Enhanced
+   ============================================ */
+
+.enhanced-note-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.enhanced-note-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.enhanced-note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.enhanced-note-patient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enhanced-note-body {
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.enhanced-note-body.purple {
+  background: #faf5ff;
+  border: 1px solid #ede9fe;
+}
+
+.enhanced-note-body.amber {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+}
+
+.enhanced-note-body.green {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+}
+
+/* ============================================
+   SHARED — Modal Enhanced
+   ============================================ */
+
+.enhanced-modal {
+  max-width: 540px;
+}
+
+.enhanced-modal .modal-body {
+  padding: 28px;
+}
+
+.enhanced-modal textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 140px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.enhanced-modal textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
+}
+
+.enhanced-modal textarea.amber-focus:focus {
+  border-color: #d97706;
+  box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1);
+}
+
+.enhanced-modal textarea.green-focus:focus {
+  border-color: #39a900;
+  box-shadow: 0 0 0 4px rgba(57, 169, 0, 0.1);
+}
+
+/* ============================================
+   SHARED — Tab Navigation
+   ============================================ */
+
+.role-tabs {
+  display: flex;
+  gap: 6px;
+  background: #f3f4f6;
+  padding: 6px;
+  border-radius: 14px;
+  overflow-x: auto;
+}
+
+.role-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.role-tab:hover {
+  background: #ffffff;
+  color: #374151;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.role-tab.active {
+  background: #ffffff;
+  color: #39a900;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(57, 169, 0, 0.12);
+}
+
+.role-tab.active.purple {
+  color: #7c3aed;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.12);
+}
+
+.role-tab.active.amber {
+  color: #d97706;
+  box-shadow: 0 2px 10px rgba(217, 119, 6, 0.12);
+}
+
+/* ============================================
+   SHARED — Filter Pills
+   ============================================ */
+
+.filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 8px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.filter-pill.active {
+  border-color: #39a900;
+  background: #f0fdf4;
+  color: #1a6b00;
+  font-weight: 600;
+}
+
+.filter-pill.active.purple {
+  border-color: #7c3aed;
+  background: #faf5ff;
+  color: #5b21b6;
+}
+
+.filter-pill.active.amber {
+  border-color: #d97706;
+  background: #fffbeb;
+  color: #92400e;
+}
+
+/* ============================================
+   4. ENFERMERÍA DASHBOARD — Blue/Teal Theme
+   ============================================ */
+
+.nursing-hero {
+  position: relative;
+  background: linear-gradient(135deg, #082f49 0%, #0c4a6e 30%, #0284c7 70%, #38bdf8 100%);
+  border-radius: 20px;
+  padding: 32px 36px;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(2, 132, 199, 0.3);
+}
+
+.nursing-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.nursing-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 8s ease-in-out infinite reverse;
+}
+
+.nursing-hero-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border: 1px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+.nursing-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.25);
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+.nursing-hero-stats {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.nursing-hero-stat {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.nursing-hero-stat:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+.nursing-hero-stat-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.nursing-hero-stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.nursing-hero-stat-label {
+  font-size: 12px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+}
+
+/* ── Nursing Appointment Rows ── */
+.nursing-enhanced-row {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.nursing-enhanced-row[data-status="pending"] { border-left-color: #f59e0b; }
+.nursing-enhanced-row[data-status="confirmed"] { border-left-color: #0284c7; }
+.nursing-enhanced-row[data-status="completed"] { border-left-color: #22c55e; }
+.nursing-enhanced-row[data-status="cancelled"] { border-left-color: #ef4444; }
+.nursing-enhanced-row[data-status="no_show"] { border-left-color: #9ca3af; }
+
+.nursing-enhanced-row:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.08);
+}
+
+.nursing-enhanced-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.nursing-enhanced-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.nursing-enhanced-status {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nursing-enhanced-status[data-s="pending"] { background: #fef3c7; color: #92400e; }
+.nursing-enhanced-status[data-s="confirmed"] { background: #e0f2fe; color: #0369a1; }
+.nursing-enhanced-status[data-s="completed"] { background: #d1fae5; color: #065f46; }
+.nursing-enhanced-status[data-s="cancelled"] { background: #fee2e2; color: #991b1b; }
+.nursing-enhanced-status[data-s="no_show"] { background: #f3f4f6; color: #6b7280; }
+
+/* ── Nursing Patient Cards ── */
+.nursing-patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.nursing-patient-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nursing-patient-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+
+.nursing-patient-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.1);
+  transform: translateY(-2px);
+}
+
+.nursing-patient-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.nursing-patient-card .psych-patient-mini-stat strong {
+  color: #0284c7;
+}
+
+/* ── Nursing Priority Badges ── */
+.nursing-priority-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nursing-priority-badge.urgente { background: #fee2e2; color: #991b1b; }
+.nursing-priority-badge.seguimiento { background: #dbeafe; color: #1e40af; }
+.nursing-priority-badge.control { background: #d1fae5; color: #065f46; }
+
+/* ── Nursing Tabs & Pills (red → blue) ── */
+.role-tab.active.red {
+  color: #0284c7;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.12);
+}
+
+.filter-pill.red.active {
+  border-color: #0284c7;
+  background: #f0f9ff;
+  color: #0c4a6e;
+}
+
+.enhanced-note-body.red {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+}
+
+.nursing-dashboard .psych-content-title svg,
+.nursing-dashboard .psych-content-header svg {
+  color: #0284c7;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .coord-hero,
+  .psych-hero,
+  .social-hero,
+  .nursing-hero {
+    padding: 24px 20px;
+  }
+
+  .coord-hero-stats,
+  .psych-hero-stats,
+  .social-hero-stats,
+  .nursing-hero-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .coord-hero-content,
+  .psych-hero-content,
+  .social-hero-content,
+  .nursing-hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .coord-apt-new-info,
+  .psych-enhanced-info,
+  .social-enhanced-info,
+  .nursing-enhanced-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .psych-patient-grid,
+  .social-patient-grid,
+  .coord-prof-rank,
+  .nursing-patient-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coord-hero-text h1,
+  .psych-hero-text h1,
+  .social-hero-text h1,
+  .nursing-hero-text h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coord-hero-stats,
+  .psych-hero-stats,
+  .social-hero-stats,
+  .nursing-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .coord-actions-bar {
+    flex-direction: column;
+  }
+
+  .coord-action-btn {
+    justify-content: center;
+  }
+
+  .role-tabs {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .role-tab {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
