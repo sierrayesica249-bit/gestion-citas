@@ -191,20 +191,7 @@ export default function Login() {
           <span>o</span>
         </div>
 
-        <div style={{ marginTop: 16, padding: 14, background: '#f9fafb', borderRadius: 10, border: '1px solid #e5e7eb' }}>
-          <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 8, fontWeight: 600 }}>
-            Credenciales de prueba:
-          </p>
-          <div style={{ fontSize: 11, color: '#6b7280', fontFamily: 'monospace' }}>
-            <div>coordinador@senas.edu / admin123</div>
-            <div>psicologia@senas.edu / admin123</div>
-            <div>enfermeria@senas.edu / admin123</div>
-            <div>trabajosocial@senas.edu / admin123</div>
-            <div>admin@senas.edu / admin123</div>
-            <div>aprendiz@senas.edu / admin123</div>
-            <div style={{ marginTop: 4, color: '#9ca3af' }}>(Contraseña: admin123 para todos)</div>
-          </div>
-        </div>
+        
 
         <p className="auth-footer">
           ¿No tienes cuenta?{" "}
