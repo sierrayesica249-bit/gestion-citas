@@ -781,3 +781,129 @@
     padding: 4px 10px;
   }
 }
+
+/* ── Importación de Excel ── */
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 16px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  color: #64748b;
+  transition: border-color 0.2s, background 0.2s;
+}
+.drop-zone:hover {
+  border-color: #3b82f6;
+  background: #f8fafc;
+}
+.drop-zone svg {
+  color: #3b82f6;
+}
+.drop-zone p {
+  margin: 0;
+  font-size: 15px;
+}
+.drop-zone span {
+  font-size: 12px;
+}
+
+.import-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.import-error svg {
+  flex-shrink: 0;
+}
+
+.import-warning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #b45309;
+  margin: 8px 0;
+}
+
+.import-file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.import-preview {
+  margin: 12px 0;
+}
+.import-preview-title {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+.import-more {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+}
+
+.import-progress {
+  margin: 12px 0;
+}
+.progress-bar {
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  transition: width 0.3s ease;
+}
+.import-progress span {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.import-summary {
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  font-size: 13px;
+  color: #166534;
+}
+.import-summary-errors {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .drop-zone {
+    padding: 24px 12px;
+  }
+}

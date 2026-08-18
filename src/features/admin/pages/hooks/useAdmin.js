@@ -57,6 +57,18 @@ export function useAdmin() {
         }
     }, [fetchUsers, user]);
 
+    const importAprendices = useCallback(async (rows, opts, onProgress) => {
+        try {
+            const summary = await AdminRepository.importAprendices(rows, opts, user?.id, { onProgress });
+            toast.success(`Importación: ${summary.created} creados, ${summary.updated} actualizados, ${summary.skipped} omitidos`);
+            fetchUsers();
+            return summary;
+        } catch (err) {
+            toast.error("Error durante la importación: " + err.message);
+            return { created: 0, updated: 0, skipped: 0, errors: [err] };
+        }
+    }, [fetchUsers, user]);
+
     const updateUserRoles = useCallback(async (userId, updates) => {
         try {
             await AdminRepository.updateUser(userId, updates, user?.id);
@@ -93,5 +105,6 @@ export function useAdmin() {
         dependencies,
         fetchDependencies,
         createUser,
+        importAprendices,
     };
 }

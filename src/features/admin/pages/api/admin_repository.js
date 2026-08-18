@@ -58,7 +58,7 @@ export class AdminRepository {
   }
 
   // Usuarios: crear nuevo usuario
-  static async createUser({ email, password, fullName, roleId, dependencyId }, adminId){
+  static async createUser({ email, password, fullName, roleId, dependencyId, documentNumber, phone, ficha, programa }, adminId){
     // 1. Verificar si el email ya tiene perfil
     const { data: existingProfile } = await supabase
       .from('profiles').select('id, email').eq('email', email).limit(1);
@@ -68,7 +68,7 @@ export class AdminRepository {
       const pid = existingProfile[0].id;
       const { error: updErr } = await supabase
         .from('profiles')
-        .update({ role_id: roleId, dependency_id: dependencyId, full_name: fullName, updated_at: new Date() })
+        .update({ role_id: roleId, dependency_id: dependencyId, full_name: fullName, document_number: documentNumber, phone, ficha, programa, updated_at: new Date() })
         .eq('id', pid);
       if (updErr) throw updErr;
       const { data: result } = await supabase.from('profiles').select('*').eq('id', pid).limit(1).single();
@@ -104,6 +104,7 @@ export class AdminRepository {
       await supabase.from('profiles').insert({
         id: userId, email, full_name: fullName,
         role_id: roleId, dependency_id: dependencyId,
+        document_number: documentNumber, phone, ficha, programa,
         is_active: true, created_at: new Date(), updated_at: new Date()
       }).then(({ error }) => {
         // Ignorar errores de duplicado/FK — el perfil ya existe
@@ -114,13 +115,50 @@ export class AdminRepository {
     // 5. Asegurar que role y dependency estén correctos
     await supabase
       .from('profiles')
-      .update({ role_id: roleId, dependency_id: dependencyId, full_name: fullName, updated_at: new Date() })
+      .update({ role_id: roleId, dependency_id: dependencyId, full_name: fullName, document_number: documentNumber, phone, ficha, programa, updated_at: new Date() })
       .eq('id', userId);
 
     // 6. Retornar perfil
     const { data: result } = await supabase.from('profiles').select('*').eq('id', userId).limit(1).single();
     await this.logAction({ userId: adminId, action:'CREATE_USER', entityType:'user', entityId: userId, newData: result });
     return result || { id: userId, email, full_name: fullName };
+  }
+
+  // USUARIOS: Importar aprendices desde Excel en lote
+  static async importAprendices(rows, { password, roleId, dependencyId }, adminId, { onProgress } = {}) {
+    const summary = { created: 0, updated: 0, skipped: 0, errors: [] };
+    const total = rows.length;
+
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      try {
+        if (!row.email) {
+          summary.skipped++;
+          summary.errors.push({ row: i + 1, email: row.email || '', name: row.full_name || '', message: 'Correo vacío' });
+          continue;
+        }
+        const email = row.email.trim().toLowerCase();
+        const { data: existing } = await supabase
+          .from('profiles').select('id').eq('email', email).limit(1);
+        await this.createUser({
+          email,
+          password: row.password || password,
+          fullName: row.full_name,
+          roleId,
+          dependencyId,
+          documentNumber: row.document_number,
+          phone: row.phone,
+          ficha: row.ficha,
+          programa: row.programa,
+        }, adminId);
+        summary[existing && existing.length > 0 ? 'updated' : 'created']++;
+      } catch (err) {
+        summary.errors.push({ row: i + 1, email: row.email || '', name: row.full_name || '', message: err.message });
+      }
+      if (onProgress) onProgress(i + 1, total);
+      await new Promise((r) => setTimeout(r, 150));
+    }
+    return summary;
   }
 
   // AUDITORIA: Obtener logs con filtros

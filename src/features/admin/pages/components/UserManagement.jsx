@@ -1,11 +1,13 @@
 import { useEffect, useState, useRef, useCallback } from "react";
-import { Search, UserPlus, MoreVertical, Pencil, Power, X, Mail, Lock, User, Building2 } from "lucide-react";
+import { Search, UserPlus, MoreVertical, Pencil, Power, X, Mail, Lock, User, Building2, FileSpreadsheet } from "lucide-react";
+import ImportAprendices from "./ImportAprendices";
 
 export default function UserManagement({ admin }) {
   const { users, pagination, loading, fetchUsers, updateUserRoles, roles, fetchRoles, dependencies, fetchDependencies, createUser } = admin;
   const [filter, setFilter] = useState({ search: "", role: "", dependency: "", page: 1 });
   const [openMenu, setOpenMenu] = useState(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showImportModal, setShowImportModal] = useState(false);
   const [creating, setCreating] = useState(false);
   const [form, setForm] = useState({ email: "", password: "", full_name: "", role_id: "", dependency_id: "" });
   const menuRef = useRef(null);
@@ -70,10 +72,16 @@ export default function UserManagement({ admin }) {
     <div className="admin-section">
       <header className="section-header">
         <h2>Gestión de Usuarios</h2>
-        <button className="btn btn-primary" onClick={() => setShowCreateModal(true)}>
-          <UserPlus size={16} />
-          Nuevo Usuario
-        </button>
+        <div style={{ display: "flex", gap: 8 }}>
+          <button className="btn btn-secondary" onClick={() => setShowImportModal(true)}>
+            <FileSpreadsheet size={16} />
+            Importar Excel
+          </button>
+          <button className="btn btn-primary" onClick={() => setShowCreateModal(true)}>
+            <UserPlus size={16} />
+            Nuevo Usuario
+          </button>
+        </div>
       </header>
 
       <div className="filter-bar">
@@ -263,6 +271,10 @@ export default function UserManagement({ admin }) {
             </button>
           </div>
         </div>
+      )}
+
+      {showImportModal && (
+        <ImportAprendices admin={admin} onClose={() => setShowImportModal(false)} />
       )}
 
       {/* Create User Modal */}
