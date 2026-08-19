@@ -29,6 +29,7 @@ import { format, parseISO, isToday } from "date-fns";
 import { es } from "date-fns/locale";
 import { supabase } from "../../../lib/supabase";
 import { toast } from "sonner";
+import { notificationBus } from "../../../shared/notifications/notificationBus";
 
 export default function CoordinationDashboard() {
   const {
@@ -142,6 +143,13 @@ export default function CoordinationDashboard() {
       });
       if (error) throw error;
       toast.success("Cita creada correctamente");
+      notificationBus.emit({
+        id: `${Date.now()}-${form.user_id}`,
+        service: form.dependencyName || dependencies.find((d) => d.id === Number(form.dependency_id))?.name,
+        userName: students.find((s) => s.id === form.user_id)?.full_name,
+        date: form.scheduled_date,
+        time: form.scheduled_time,
+      });
       setShowForm(false);
       setForm({ user_id: "", dependency_id: "", scheduled_date: "", scheduled_time: "08:00", reason: "" });
       fetchAppointments({ status: aptFilter === "all" ? undefined : aptFilter });

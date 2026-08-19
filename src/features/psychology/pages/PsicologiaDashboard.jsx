@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
+import { notificationBus } from "../../../shared/notifications/notificationBus";
 
 const STATUS_TABS = [
   { key: "pending", label: "Pendientes" },
@@ -81,6 +82,13 @@ export default function PsicologiaDashboard() {
       });
       if (error) throw error;
       toast.success("Cita creada correctamente");
+      notificationBus.emit({
+        id: `${Date.now()}-${form.user_id}`,
+        service: form.dependencyName || dependencies.find((d) => d.id === Number(form.dependency_id))?.name,
+        userName: students.find((s) => s.id === form.user_id)?.full_name,
+        date: form.scheduled_date,
+        time: form.scheduled_time,
+      });
       setShowForm(false);
       setForm({ user_id: "", dependency_id: "", scheduled_date: "", scheduled_time: "08:00", reason: "" });
       fetchAppointments({ status: filter === "all" ? undefined : filter });

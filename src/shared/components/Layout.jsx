@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 import SenaLogo from "./SenaLogo";
+import { NotificationBell } from "./NotificationBell";
 
 export function Layout({ children }) {
   const { user, profile, signOut, isAdmin, isCoordination, isProfessional, hasRole } =
@@ -204,6 +205,7 @@ export function Layout({ children }) {
           <div className="topbar-user" aria-label={`Usuario: ${profile?.full_name || user?.email}`}>
             {profile?.full_name || user?.email}
           </div>
+          <NotificationBell />
         </header>
         <main className="main-content" id="main-content" role="main">
           {children}

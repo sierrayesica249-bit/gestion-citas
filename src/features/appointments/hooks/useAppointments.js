@@ -3,6 +3,7 @@ import { AppointmentRepository } from "../api/appointments.repository";
 import { toast } from "sonner";
 import { useAuth } from "../../../providers/AuthProvider";
 import { supabase } from "../../../lib/supabase";
+import { notificationBus } from "../../../shared/notifications/notificationBus";
 
 // ESTADOS DE CARGA ESPECÍFICOS (mejor UX que un genérico "loading")
 const STATUS = {
@@ -97,6 +98,14 @@ export function useAppointments() {
       // OPTIMISTIC UPDATE: Actualizamos UI inmediatamente
       setAppointments((prev) => [...prev, newAppointment]);
       toast.success("Cita agendada correctamente");
+      notificationBus.emit({
+        id: newAppointment.id,
+        service: newAppointment.dependencies?.name,
+        userName: profile?.full_name,
+        date: newAppointment.scheduled_date,
+        time: newAppointment.scheduled_time,
+        createdAt: newAppointment.created_at,
+      });
       return { success: true, data: newAppointment };
     } catch (err) {
       setError(err.message);
@@ -105,7 +114,7 @@ export function useAppointments() {
     } finally {
       setStatus(STATUS.IDLE);
     }
-  }, [user, isAprendiz]);
+  }, [user, isAprendiz, profile]);
 
   // UPDATE STATUS: Cambiar estado (confirmar, completar, cancelar)
   const updateStatus = useCallback(async (appointmentId, newStatus, notes = null) => {
